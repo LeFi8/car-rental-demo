@@ -33,6 +33,19 @@ export class CarsResolver {
         return car;
     }
 
+    @Query(() => Car)
+    async returnACar(
+        @Args('brand') brand: string,
+        @Args('year') year: number,
+        @Args('name') name: string,
+    ) {
+        const car = await this.carsService.returnACar(brand, year, name);
+
+        if (!car) throw new Error("Car not found! Can't return that car");
+
+        return car;
+    }
+
     @Mutation(() => Car)
     async createCar(
         @Args('createCarInput') createCarInput: CreateCarInput,

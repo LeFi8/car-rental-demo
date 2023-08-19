@@ -40,4 +40,27 @@ export class CarsService {
 
         return car;
     }
+
+    async returnACar(
+        brand: string,
+        year: number,
+        rentersName: string,
+    ): Promise<Car> {
+        const car = await this.carsRepository.findOne({
+            where: {
+                brand,
+                year,
+                availableForRent: false,
+                currentRenterName: rentersName,
+            },
+        });
+
+        if (!car) return null;
+
+        car.availableForRent = true;
+        car.currentRenterName = null;
+        await this.carsRepository.save(car);
+
+        return car;
+    }
 }
