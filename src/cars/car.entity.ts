@@ -10,6 +10,10 @@ export class Car {
     @Field(() => Int)
     id: number;
 
+    @Field()
+    @Column()
+    ownersName: string;
+
     @Column()
     @Field()
     brand: string;
