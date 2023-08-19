@@ -10,10 +10,6 @@ export class Car {
     @Field(() => Int)
     id: number;
 
-    @Field()
-    @Column()
-    ownersName: string;
-
     @Column()
     @Field()
     brand: string;
@@ -21,4 +17,12 @@ export class Car {
     @Column()
     @Field()
     year: number;
+
+    @Column()
+    @Field()
+    availableForRent: boolean;
+
+    @Column({ nullable: true })
+    @Field({ nullable: true })
+    currentRenterName: string;
 }
