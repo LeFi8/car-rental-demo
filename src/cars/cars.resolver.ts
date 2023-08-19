@@ -12,6 +12,11 @@ export class CarsResolver {
         return this.carsService.findAll();
     }
 
+    @Query(() => [Car])
+    carsByBrand(@Args('brand') brand: string): Promise<Car[]> {
+        return this.carsService.findCarsByBrand(brand);
+    }
+
     @Mutation(() => Car)
     createCar(
         @Args('createCarInput') createCarInput: CreateCarInput,

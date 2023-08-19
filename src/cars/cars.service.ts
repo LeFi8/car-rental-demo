@@ -18,4 +18,8 @@ export class CarsService {
     async findAll(): Promise<Car[]> {
         return this.carsRepository.find();
     }
+
+    async findCarsByBrand(brand: string): Promise<Car[]> {
+        return this.carsRepository.find({ where: { brand } });
+    }
 }
