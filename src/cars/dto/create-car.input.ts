@@ -15,5 +15,5 @@ export class CreateCarInput {
 
     @Column({ nullable: true })
     @Field({ nullable: true })
-    currentRenterName: string;
+    currentRenterName?: string;
 }

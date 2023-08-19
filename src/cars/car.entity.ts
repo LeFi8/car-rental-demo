@@ -24,5 +24,5 @@ export class Car {
 
     @Column({ nullable: true })
     @Field({ nullable: true })
-    currentRenterName: string;
+    currentRenterName?: string;
 }
