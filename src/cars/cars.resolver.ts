@@ -17,6 +17,11 @@ export class CarsResolver {
         return this.carsService.findCarsByBrand(brand);
     }
 
+    @Query(() => [Car])
+    async findAllCarsAvailableForRenting(): Promise<Car[]> {
+        return this.carsService.findAllCarsAvailableForRenting();
+    }
+
     @Query(() => Car)
     async rentACar(
         @Args('brand') brand: string,

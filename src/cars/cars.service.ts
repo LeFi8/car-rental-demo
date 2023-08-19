@@ -23,6 +23,10 @@ export class CarsService {
         return this.carsRepository.find({ where: { brand } });
     }
 
+    async findAllCarsAvailableForRenting(): Promise<Car[]> {
+        return this.carsRepository.find({ where: { availableForRent: true } });
+    }
+
     async rentACar(
         brand: string,
         year: number,
